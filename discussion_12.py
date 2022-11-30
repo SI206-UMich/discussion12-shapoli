@@ -41,12 +41,12 @@ def add_employee(filename, cur, conn):
         conn.commit()
 # TASK 2: GET JOB AND HIRE_DATE INFORMATION
 def job_and_hire_date(cur, conn):
-    cur.execute('SELECT job_id, hire_date FROM employees')
+    cur.execute('SELECT jobs.job_title, employees.hire_date from jobs join employees on jobs.job_id = employees.job_id order by employees.hire_date limit 1')
 
 # TASK 3: IDENTIFY PROBLEMATIC SALARY DATA
 # Apply JOIN clause to match individual employees
 def problematic_salary(cur, conn):
-    pass
+    cur.execute('SELECT employee_id FROM employees JOIN jobs ON job_id')
 
 # TASK 4: VISUALIZATION
 def visualization_salary_data(cur, conn):
