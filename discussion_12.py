@@ -59,7 +59,17 @@ def visualization_salary_data(cur, conn):
     conn.commit()
     x,y=zip(*res)
     plt.scatter(x,y)
-    # fig = px.bar(x= ["President", "Administration Vice President", 'Administration Assistant', 'Public accountant', 'Accountant', 'Accounting manager'], y = )
+    cur.execute()
+    res = cur.fetchall()
+    conn.commit()
+    x,y=zip(*res)
+    plt.scatter(x,y,color ='red', marker = 'x')
+    cur.execute()
+    res = cur.fetchall()
+    conn.commit()
+    x,y=zip(*res)
+
+
 
 class TestDiscussion12(unittest.TestCase):
     def setUp(self) -> None:
